@@ -10,11 +10,30 @@ int pow(int a,int n)
     return cal*cal;
 }
 
+    //a^b
+int modular_exponentiation_using_bitmask(int a,int b)   
+{
+        int res=1;
+        while(b)
+        {
+            if(b&1)
+            res=(res*a);
+            b=b>>1;
+            a*=a;
+        }
+        return res;
+}
 
 int main()
-{   int a;
+{
+    
+        freopen("/home/prakersh/Desktop/my_solution/input.txt","r",stdin);
+        freopen("/home/prakersh/Desktop/my_solution/output.txt","w",stdout);
+
+       int a;
     int n;
     cin>>a>>n;
-    cout<<pow(a,n);
+    cout<<pow(a,n)<<endl;
+    cout<<modular_exponentiation_using_bitmask(a,n);
     return 0;
 }
